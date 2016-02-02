@@ -18,7 +18,6 @@ class MainController {
     @Autowired
     private TodoDataService Service;
 
-<<<<<<< HEAD
     @RequestMapping("/")
     @ResponseBody
     def String index() {

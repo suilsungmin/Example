@@ -1,0 +1,17 @@
+*.iml
+/.idea
+/build
+/.gradle
+.project
+*.sublime-project
+*.sublime-workspace
+/bin
+/.settings
+.classpath
+*.settings
+gradle-app.setting
+classes
+.DS_Store
+/out
+**/node_modules/
+**/sprites/

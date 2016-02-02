@@ -1,16 +1,14 @@
 package hello.DAO
 
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.jdbc.core.JdbcTemplate
+import hello.domain.Todo
+import org.apache.ibatis.annotations.Param
 import org.springframework.stereotype.Repository
 
 /**
  * Created by smpark on 2016-01-19.
  */
 @Repository
-class TodoRepository {
-    @Autowired
-    JdbcTemplate template;
-
-
+public interface TodoRepository {
+   Todo getTodoData(@Param("id") int todoId);
+   List<Todo> getAllTodoData();
 }

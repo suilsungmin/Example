@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hello.DAO.TodoRepository" >
+
+    <resultMap type="todoData" id="todoData">
+        <id property="id" column="id"/>
+        <result property="content" column="content"/>
+    </resultMap>
+
+    <sql id="commonConnectionInfoSelect">
+        SELECT
+        id
+        ,content
+        FROM todo
+    </sql>
+
+    <select id="getTodoData" parameterType="int" resultMap="todoData">
+        <include refid="commonConnectionInfoSelect"/>
+        WHERE id = #{id}
+    </select>
+
+    <select id="getAllTodoData" resultMap="todoData">
+        <include refid="commonConnectionInfoSelect"/>
+    </select>
+
+<!--
+    <insert id="insertConnectionInfo" parameterType="connectionInfo">
+        insert into connection_info(id, content)
+        values(#{id}, #{content})
+    </insert>
+
+    <delete id="removeConnectionInfo" parameterType="String">
+        delete from connection_info
+        where id = #{id}
+    </delete>
+
+    <update id="updateConnectionInfo" parameterType="connectionInfo">
+        update connection_info
+        set
+        content = #{content}
+    </update>-->
+</mapper>

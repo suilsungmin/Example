@@ -22,14 +22,14 @@ class MainController {
 
     @RequestMapping("todos")
     @ResponseBody
-    def index() {
+    def getTodos() {
         Service.getAllTodoData();
     }
 
     @RequestMapping("todos/{id}")
     @ResponseBody
-    def String getBlog(TodoRepository todo) {
-        blogDao.findOne(todo.getId());
+    def getTodoById(@PathVariable int id) {
+        Service.getTodoData(id);
     }
 
 
